@@ -21,19 +21,19 @@ hub.imu.reset_heading(0)
 
 async def main():
    if hub.imu.ready():
-    await robot.straight(-1000)
-    robot.settings(straight_speed = 220,straight_acceleration= 100, turn_rate=200, turn_acceleration=100)
+    await robot.straight(-1000) #robot straight
+    robot.settings(straight_speed = 220,straight_acceleration= 100, turn_rate=200, turn_acceleration=100) #robot slower
     await robot.straight(25)
     await robot.turn(-91)
-    await multitask(RAM.run_time(690,900),LAM.run_time(500,820))
+    await multitask(RAM.run_time(690,900),LAM.run_time(500,860)) #arm goes down (LAM+RAM)
     robot.settings(straight_speed = 220,straight_acceleration= 100, turn_rate=200, turn_acceleration=100)
     await robot.straight(70)
-    await multitask(RAM.run_time(0,0),LAM.run_time(500,380))
+    await multitask(RAM.run_time(0,0),LAM.run_time(300,340)) #arm goes down (LAM+RAM)
     robot.settings(straight_speed = 190,straight_acceleration= 50, turn_rate=100, turn_acceleration=70)
     await robot.straight(54)
     robot.settings(straight_speed = 220,straight_acceleration= 100, turn_rate=200, turn_acceleration=100)
-    await multitask(RAM.run_time(-690,910),LAM.run_time(-100,500))
-    await multitask(RAM.run_time(690,910),LAM.run_time(0,0))
+    await multitask(RAM.run_time(-690,910),LAM.run_time(-150,500))  # arm go up (LAM)
+    await multitask(RAM.run_time(690,910),LAM.run_time(0,0)) #arm goes up (RAM)
     await wait(930)
     await robot.straight(-30)
     await robot.turn(4.5)
