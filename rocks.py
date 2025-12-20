@@ -1,13 +1,14 @@
+
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor
 from pybricks.robotics import DriveBase
 from pybricks.parameters import Port,Direction
 
 hub = PrimeHub()
-left_motor = Motor(Port.B,Direction.COUNTERCLOCKWISE)
+left_motor = Motor(Port.A,Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.E,Direction.CLOCKWISE)
-RAM = Motor(Port.F)
-LAM = Motor(Port.D)
+RAM = Motor(Port.C)
+LAM = Motor(Port.B)
 
 wheel_diameter = 56
 axle_track = 122
@@ -15,25 +16,30 @@ robot = DriveBase(left_motor,right_motor,wheel_diameter,axle_track)
 
 robot.use_gyro(True)
 
-robot.settings(straight_speed = 720,straight_acceleration= 300, turn_rate=600, turn_acceleration=300)
+robot.settings(straight_speed = 720,straight_acceleration= 300, turn_rate=600, turn_acceleration=400)
 hub.imu.reset_heading(0)
 
 if hub.imu.ready():
     robot.straight(730)
     robot.turn(25)
     robot.straight(30)
-    robot.turn(-50)
+    robot.turn(-45)
     robot.turn(30)
-    robot.straight(10)
-    robot.turn(55)
-    
-
-  
-  
-  
-    # LAM.run_time(-993,1090)
-    # robot.straight(50)
-    # LAM.run_time(500,2000)
+    robot.straight(-50)
+    robot.turn(32)
+    robot.straight(15)
+    RAM.run_time(-600,1200)
+    robot.settings(straight_speed = 350,straight_acceleration= 80, turn_rate=600, turn_acceleration=400)
+    robot.turn(5) #correction
+    robot.straight(55)
+    RAM.run_time(1000,1200)
+    robot.settings(straight_speed = 720,straight_acceleration= 300, turn_rate=600, turn_acceleration=400)
+    robot.straight(-7)
+    robot.turn(-40)
+    robot.straight(-55)
+    robot.turn(98)
+    robot.straight(500)
+    robot.turn(90)
     # LAM.run_time(-1000,1000)
     # RAM.run_time(-1000,1000)
     #robot.straight(670)
