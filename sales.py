@@ -5,10 +5,10 @@ from pybricks.parameters import Port,Direction
 from pybricks.tools import wait
 
 hub = PrimeHub()
-left_motor = Motor(Port.B,Direction.COUNTERCLOCKWISE)
+left_motor = Motor(Port.A,Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.E,Direction.CLOCKWISE)
-RAM = Motor(Port.F)
-LAM = Motor(Port.D)
+RAM = Motor(Port.C)
+LAM = Motor(Port.B)
 
 wheel_diameter = 56
 axle_track = 122
@@ -49,4 +49,4 @@ if hub.imu.ready():
     # # robot.straight(-170)
     # robot.turn(90)
     # robot.straight(-500)
-    
+    -
